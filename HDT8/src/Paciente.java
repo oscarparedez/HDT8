@@ -5,12 +5,14 @@ import java.util.Set;
 
 public class Paciente implements Comparable<Paciente>
 {
+//	ATRIBUTOS DE PACIENTE
     String nom;
     String enf;
     String pri;
+// MAP DONDE SE ENCUENTRAN LOS PACIENTES ORDENADOS ALFABETICAMENTE POR SUS PRIORIDADES
     Map<String,Integer> map = ordenarAlfabeticamente();
 
-
+//	GETTERS Y SETTERS
     public String getNombrePaciente(){
         return this.nom;
     }
@@ -30,6 +32,7 @@ public class Paciente implements Comparable<Paciente>
         this.pri=p;
     }
 
+//  OBTENER EL INDICE DE LA POSICION DEL PACIENTE EN EL OBJETO DONDE SE ENCUENTRAN
     public int posicionPaciente(String caracter){
         Set<String> keys = map.keySet();
         Object[] caracteres = keys.toArray();
@@ -43,7 +46,7 @@ public class Paciente implements Comparable<Paciente>
         }
         return pos;
     }
-
+//  ORDENAR ALFABETICAMENTE A LAS PRIORIDADES DE LOS PACIENTES MEDIANTE UN MAP
     public Map<String,Integer> ordenarAlfabeticamente() {
     	
         ArrayList<String> letrasValidas = new ArrayList<>();
@@ -63,7 +66,8 @@ public class Paciente implements Comparable<Paciente>
         }
         return indicesOrdenados;
     }
-    
+
+//  COMPARACION ENTRE DOS PACIENTES Y SUS POSICIONES MEDIANTE LA CLASE COMPARABLE
     @Override
     public int compareTo(Paciente p) {
         if(posicionPaciente(getPrioridadPaciente())<posicionPaciente(p.getPrioridadPaciente())){

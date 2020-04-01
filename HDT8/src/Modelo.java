@@ -11,11 +11,11 @@ import java.util.Vector;
 public class Modelo implements Comparator<Paciente>
 {
 	
-	
+//	DIRECTORIO PERSONAL DEL USUARIO
 	private String path = System.getProperty("user.dir");
-	private File file = new File(path+"/src/pacientes.txt");
-	
+	private File file = new File(path+"\\src\\pacientes.txt");
 
+//REALIZAR EL SCAN DEL ARCHIVO E INSERTARLO EN UN VECTOR
     public Vector<Paciente> estructurarArchivoVector(){
     	
         Vector<Paciente> pacientes = new Vector<>();
@@ -41,6 +41,7 @@ public class Modelo implements Comparator<Paciente>
         return pacientes;
     }
 
+ //REALIZAR EL SCAN DEL ARCHIVO E INSERTARLO EN UN ARRAYLIST
     public ArrayList<Paciente> estructurarArchivoArrayList(){
     	
         ArrayList<Paciente> pacientes = new ArrayList<>();
@@ -65,6 +66,7 @@ public class Modelo implements Comparator<Paciente>
         return pacientes;
     }
 	
+//  OBTENER EL INDICE DE LA POSICION DEL PACIENTE EN EL OBJETO DONDE SE ENCUENTRAN
     Map<String,Integer> map = ordenarAlfabeticamente();
     
     public int posicionPaciente(String caracter){
@@ -80,7 +82,8 @@ public class Modelo implements Comparator<Paciente>
         }
         return pos;
     }
-	
+
+//    ORDENAR ALFABETICAMENTE A LAS PRIORIDADES DE LOS PACIENTES MEDIANTE UN MAP
     public Map<String,Integer> ordenarAlfabeticamente() {
     	
         ArrayList<String> letrasValidas = new ArrayList<>();
@@ -101,6 +104,7 @@ public class Modelo implements Comparator<Paciente>
         return indicesOrdenados;
     }
 
+//    COMPARACION ENTRE DOS PACIENTES Y SUS POSICIONES
     @Override
     public int compare(Paciente no1, Paciente no2) {
         return posicionPaciente(no1.getPrioridadPaciente())-posicionPaciente(no2.getPrioridadPaciente());
